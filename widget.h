@@ -2,7 +2,6 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QPainter>
 #include <QVector>
 
 #include "node.h"
@@ -16,16 +15,22 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-    QVector<Node> getNodes() { return nodes; }
+    QVector<Node> getNodes() { return nodes_; }
+    QVector<Edge> getEdges() { return edges_; }
 
     void paintCenter(const int, const int);
     void paintNode(const Node &);
     void paintEdge(const Node &, const Node &);
 
-    QVector<Node> nodes;
-    QVector<Edge> edges;
+    friend bool fillViaFile(Widget &);
+    friend bool setNodes(Widget &, const int &wx, const int &wy);
+
 protected:
     void paintEvent(QPaintEvent *event) override;
+
+private:
+    QVector<Node> nodes_;
+    QVector<Edge> edges_;
 
 };
 #endif // WIDGET_H

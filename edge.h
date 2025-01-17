@@ -5,16 +5,16 @@ class Edge
 {
 public:
     Edge();
-    Edge(int, int);
+    Edge(int start, int end);
 
-    int getStart() const { return start; }
-    int getEnd() const { return end; }
+    int getStart() const { return start_; }
+    int getEnd() const { return end_; }
 
 
 private:
 
-    int start;
-    int end;
+    int start_;
+    int end_;
 };
 
 #endif // EDGE_H

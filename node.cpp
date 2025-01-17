@@ -1,27 +1,27 @@
 #include "node.h"
 
 Node::Node() {}
-Node::Node(int num) : num(num) {}
-Node::Node(int x, int y, int num, int size) : x(x), y(y), num(num), size(size) {}
+Node::Node(int num) : num_(num) {}
+Node::Node(int x, int y, int num, double size) : x_(x), y_(y), num_(num), size_(size) {}
 
 
-void Node::setX(int p_x) {
-    x = p_x;
+void Node::setX(int x) {
+    x_ = x;
 }
-void Node::setY(int p_y) {
-    y = p_y;
+void Node::setY(int y) {
+    y_ = y;
 }
-void Node::setNum(int p_num) {
-    if (p_num >= 0) {
-        num = p_num;
+void Node::setNum(int num) {
+    if (num >= 0) {
+        num_ = num;
     }
     else {
         throw "Num can be only > 0";
     }
 }
-void Node::setSize(double p_size) {
-    if (p_size >= 0) {
-        size = p_size;
+void Node::setSize(double size) {
+    if (size >= 0) {
+        size_ = size;
     }
     else {
         throw "Size can be only > 0";
